@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
     bionic64.vm.network "private_network", ip: "192.168.33.10"
 
     bionic64.vm.synced_folder "../", "/home/vagrant/projects"
-    bionic64.vm.provision :shell, path: "basic_setup_ubuntu.sh", privileged: false
+    bionic64.vm.provision :shell, path: "basic_setup.sh", privileged: false
   end
 
   config.vm.define "mint19" do |mint19|
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     mint19.vm.network "private_network", ip: "192.168.33.11"
 
     mint19.vm.synced_folder "../", "/home/vagrant/projects"
-    mint19.vm.provision :shell, path: "basic_setup_mint.sh", privileged: false
+    mint19.vm.provision :shell, path: "basic_setup.sh", privileged: false
   end
 
   config.vm.provider "virtualbox" do |v|
