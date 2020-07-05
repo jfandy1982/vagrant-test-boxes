@@ -21,17 +21,6 @@ Vagrant.configure("2") do |config|
     mint19.vm.provision :shell, path: "basic_setup.sh", privileged: false
   end
 
-  config.vm.define "mint20" do |mint20|
-    mint20.vm.box = "epipho/mint-20.0"
-    mint20.vm.box_check_update = true
-
-    mint20.vm.hostname = "mint19"
-    mint20.vm.network "private_network", ip: "192.168.33.12"
-
-    mint20.vm.synced_folder "../", "/home/vagrant/projects"
-    mint20.vm.provision :shell, path: "basic_setup.sh", privileged: false
-  end
-
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048
     v.cpus = 2

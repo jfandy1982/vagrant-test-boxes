@@ -4,7 +4,6 @@ This repository contains definitions of vagrant boxes for testing developments i
 
 - Ubuntu 64 (no UI): Spin it up with `vagrant up bionic64`
 - Linux Mint 19: Spin it up with `vagrant up mint19`
-- Linux Mint 20: Spin it up with `vagrant up mint20`
 
 The initialization script stored in bash script `basic_setup.sh` only perfoms minimal actions. It updates the packages, it installs a few basic packages incl. language packs for German and it finally sets the timezone to "Europe/Berlin".
 
