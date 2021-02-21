@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-# Steps are taken from https://docs.docker.com/engine/install/ubuntu/
+# Steps are taken from:
+# - Docker engine:
+#     https://docs.docker.com/engine/install/ubuntu/
+# - Portainer.io:
+#     https://documentation.portainer.io/v2.0/deploy/ceinstalldocker/ > "Docker on Linux"
+# - Idea with file provisioning to enable remote access to docker within vagrant:
+#     https://github.com/bubabi/vagrant-with-docker
 
 # update the apt package index
 sudo apt-get update -y
@@ -49,4 +55,11 @@ sudo mv /tmp/docker.service.override.conf /etc/systemd/system/docker.service.d/o
 sudo systemctl daemon-reload
 sudo systemctl restart docker.service
 sudo ps -ax | grep docker
+sudo echo "done..."
+
+# Install docker container mgmt tool [portainer-ce]
+
+sudo echo "Install [portainer-ce/latest]"
+sudo docker volume create portainer_data
+sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 sudo echo "done..."

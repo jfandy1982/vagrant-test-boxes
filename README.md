@@ -48,3 +48,18 @@ The script stored in bash script `basic_setup_docker.sh` installs the docker eng
 - use docker CLI with regular user `vagrant`
 - to start up on every boot
 - be accessible from the network
+- use portainer.io to manage docker containers
+
+#### portainer.io
+
+The portainer.io management can be accessed via [https://192.168.33.20:9000](https://192.168.33.20:9000). The IP address `192.168.33.20` is configured in the configuration of the docker vagrant box (see `Vagrantfile`). The port `9000` is the default port of the portainer.io UI. The container is configured, so that it starts during the boot process of the vagrant box.
+
+Accessing the portainer.io for the first time, these steps are required.
+
+- Set a password for the admin user. This is not done via provisioning here. I assume, you can remember that password easily.
+- Uncheck "Allow collection of anonymous statistics. You can find..." option.
+- Click on "Create user"
+- Choose "Manage the local Docker environment" option.
+- Click on "Connect"
+
+You will see the dashboard of portainer.io showing the locally available docker artifacts.
