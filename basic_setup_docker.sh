@@ -30,7 +30,7 @@ sudo add-apt-repository \
 
 # install docker engine
 sudo apt-get update -y
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli docker-compose containerd.io
 sudo docker run hello-world
 
 # Post-installation steps
