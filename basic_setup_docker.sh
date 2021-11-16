@@ -30,7 +30,7 @@ sudo add-apt-repository \
 
 # install docker engine
 sudo apt-get update -y
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli docker-compose containerd.io
 sudo docker run hello-world
 
 # Post-installation steps
@@ -47,6 +47,7 @@ sudo systemctl enable containerd.service
 sudo echo "done..."
 
 # Configure remote access with systemd unit file
+# conf file is placed by file provisioner (see Vagrantfile)
 sudo echo "Configure remote access with systemd unit file"
 sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo mv /tmp/docker.service.override.conf /etc/systemd/system/docker.service.d/override.conf
@@ -58,7 +59,6 @@ sudo ps -ax | grep docker
 sudo echo "done..."
 
 # Install docker container mgmt tool [portainer-ce]
-
 sudo echo "Install [portainer-ce/latest]"
 sudo docker volume create portainer_data
 sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
