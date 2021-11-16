@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
     focal64.vm.box_check_update = true
 
     focal64.vm.hostname = "focal64"
-    focal64.vm.network "private_network", ip: "192.168.33.10"
+    focal64.vm.network "private_network", ip: "192.168.56.10"
 
     focal64.vm.synced_folder "../../../", "/home/vagrant/projects"
 
@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     docker.vm.box_check_update = false
 
     docker.vm.hostname = "docker"
-    docker.vm.network "private_network", ip: "192.168.33.20"
+    docker.vm.network "private_network", ip: "192.168.56.20"
     docker.vm.network "forwarded_port", guest: 2375, host: 2375
 
     docker.vm.synced_folder "../../../", "/home/vagrant/projects"

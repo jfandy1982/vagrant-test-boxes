@@ -52,7 +52,7 @@ The script stored in bash script `basic_setup_docker.sh` installs the docker eng
 
 #### portainer.io
 
-The portainer.io management can be accessed via [https://192.168.33.20:9000](https://192.168.33.20:9000). The IP address `192.168.33.20` is configured in the configuration of the docker vagrant box (see `Vagrantfile`). The port `9000` is the default port of the portainer.io UI. The container is configured, so that it starts during the boot process of the vagrant box.
+The portainer.io management can be accessed via [https://192.168.56.20:9000](https://192.168.56.20:9000). The IP address `192.168.56.20` is configured in the configuration of the docker vagrant box (see `Vagrantfile`). The port `9000` is the default port of the portainer.io UI. The container is configured, so that it starts during the boot process of the vagrant box.
 
 Accessing the portainer.io for the first time, these steps are required.
 
