@@ -2,7 +2,7 @@
 
 This repository contains definitions of vagrant boxes for testing developments in my other repositories. Execute command `vagrant up` in this folder to spin up all defined boxes in the file `Vagrantfile`.
 
-- Ubuntu 64 (no UI): Spin it up with `vagrant up focal64`
+- Ubuntu 64 (no UI): Spin it up with `vagrant up jammy64`
 - Docker on Ubuntu 64 (no UI): Spin it up with `vagrant up docker`
 
 The maintenance of the locally available vagrant boxes can be done as follows:
