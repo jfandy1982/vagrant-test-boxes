@@ -20,28 +20,29 @@ The configured vagrant boxes use [Oracle VirtualBox](https://www.virtualbox.org)
 
 The following vagrant plugins are required in the local setup:
 
-- vagrant-clean: Destroy all vagrant ressources for all vagrant environments (see [here](https://github.com/mspaulding06/vagrant-clean))
+- vagrant-clean: Destroy all vagrant resources for all vagrant environments (see [here](https://github.com/mspaulding06/vagrant-clean))
 - vagrant-vbguest: Install the host's VB Guest Additions on the guest system (see [here](https://github.com/dotless-de/vagrant-vbguest))
 
 The vagrant plugins can be installed using the command `vagrant plugin install vagrant-clean vagrant-vbguest`
 
 ### Synced folder
 
-The configuration of these vagrant boxes will mount a folder on the host to path `/home/vagrant/projects` within the vagrant box. My personal folder layout allows that configuration, because I put this repository `jfandy1982/vagrant-test-boxes` into a folder `~/Projekte/Git-Repos/jfandy1982/`. As I want to use these boxes for isolated tests of my developments, I explicitely want to mount the other projects into the vagrant playground. It is probably not the most ideal option, but as long as I didn't containerize everything, it is OK for me. Check that setup individually.
+The configuration of these vagrant boxes will mount a folder on the host to path `/home/vagrant/projects` within the vagrant box. My personal folder layout allows that configuration, because I put this repository `jfandy1982/vagrant-test-boxes` into a folder `~/Projekte/Git-Repos/jfandy1982/`. As I want to use these boxes for isolated tests of my developments, I explicitly want to mount the other projects into the vagrant playground. It is probably not the most ideal option, but as long as I didn't containerize everything, it is OK for me. Check that setup individually.
+Additionally, the folder `/vagrant` is bound to this repository folder.
 
 ## Defined vagrant boxes
 
-### focal64
+### jammy64
 
 Use this vagrant box for experiments on a plain Ubuntu - e.g. bash scripting.
 
-The initialization script stored in bash script `basic_setup_ubuntu.sh` only perfoms minimal actions. It updates the packages via APT, it installs a few basic packages incl. language packs for German and it finally sets the timezone to "Europe/Berlin".
+The initialization script stored in bash script `basic_setup_ubuntu.sh` only performs minimal actions. It updates the packages via APT, it installs a few basic packages incl. language packs for German and it finally sets the timezone to "Europe/Berlin".
 
 ### docker
 
 Use this vagrant box for app development. It contains a docker installation to spin up various containers.
 
-The initialization script stored in bash script `basic_setup_ubuntu.sh` only perfoms minimal actions. It updates the packages, it installs a few basic packages incl. language packs for German and it finally sets the timezone to "Europe/Berlin".
+The initialization script stored in bash script `basic_setup_ubuntu.sh` only performs minimal actions. It updates the packages, it installs a few basic packages incl. language packs for German and it finally sets the timezone to "Europe/Berlin".
 
 The script stored in bash script `basic_setup_docker.sh` installs the docker engine as described in the official Docker installation guide for [Ubuntu](https://docs.docker.com/engine/install/ubuntu/). It also configures the docker service:
 
@@ -49,6 +50,7 @@ The script stored in bash script `basic_setup_docker.sh` installs the docker eng
 - to start up on every boot
 - be accessible from the network
 - use portainer.io to manage docker containers
+- portainer data is saved into a mounted volume `docker_storage/portainer` within the repository of 'vagrant-test-boxes'. Delete the content on the host, if a complete reset is required.
 
 #### portainer.io
 
