@@ -1,5 +1,4 @@
-# General
-.vagrant/
+.vagrant
+docker_storage
 
-# Log files (if you are creating logs in debug mode, uncomment this)
 *.log
