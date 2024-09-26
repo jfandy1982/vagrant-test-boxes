@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Delete outdated workflow runs'
-        uses: Mattraks/delete-workflow-runs@v2
+        uses: Mattraks/delete-workflow-runs@v2.0.6
 
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
